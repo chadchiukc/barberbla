@@ -23,6 +23,7 @@ dependencies:
   firebase_core:
   flutter_easyloading:
   geolocator:
+  responsive_builder:
 
 dev_dependencies:
   flutter_test:

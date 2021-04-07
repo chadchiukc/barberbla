@@ -1,3 +1,4 @@
+import 'package:barberbla/models/service_model.dart';
 import 'package:barberbla/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -21,6 +22,16 @@ class Database {
       DocumentSnapshot _doc =
           await _firestore.collection('users').doc(uid).get();
       return UserModel.fromDocumentSnapshot(documentSnapshot: _doc);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<QuerySnapshot> getServices() async {
+    try {
+      QuerySnapshot querySnapshot =
+          await _firestore.collection('services').get();
+      return querySnapshot;
     } catch (e) {
       rethrow;
     }
