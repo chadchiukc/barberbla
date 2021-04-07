@@ -1,3 +1,4 @@
+import 'package:barberbla/pages/dashboard_page.dart';
 import 'package:barberbla/utils/root.dart';
 import 'package:barberbla/utils/routes.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,8 @@ class MyApp extends StatelessWidget {
         )),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Root(),
+      // home: Root(),
+      home: DashboardPage(),
       getPages: routes(),
       builder: EasyLoading.init(),
     );
