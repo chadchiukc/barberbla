@@ -1,6 +1,7 @@
 import 'package:barberbla/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class Login extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -32,7 +33,12 @@ class Login extends StatelessWidget {
             children: [
               SafeArea(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: getValueForScreenType(
+                          context: context,
+                          mobile: 30,
+                          tablet: Get.width * 0.2,
+                          desktop: Get.width * 0.3)),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
