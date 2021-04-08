@@ -1,4 +1,4 @@
-import 'package:barberbla/pages/dashboard_page.dart';
+import 'package:barberbla/pages/services_page.dart';
 import 'package:barberbla/utils/root.dart';
 import 'package:barberbla/utils/routes.dart';
 import 'package:flutter/material.dart';

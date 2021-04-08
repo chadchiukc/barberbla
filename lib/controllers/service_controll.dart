@@ -7,11 +7,20 @@ class ServiceController extends GetxController {
   var servicesList = <ServiceModel>[].obs;
   QuerySnapshot _services;
 
+  @override
+  void onInit() {
+    addServices();
+    super.onInit();
+  }
+
   void addServices() async {
-    _services = await Database().getServices();
-    _services.docs.forEach((element) {
-      servicesList.add(ServiceModel.fromQueryDocumentnapshot(element));
-    });
-    print(servicesList[0].fee);
+    try {
+      _services = await Database().getServices();
+      _services.docs.forEach((element) {
+        servicesList.add(ServiceModel.fromQueryDocumentnapshot(element));
+      });
+    } catch (e) {
+      Get.snackbar("Error during fetching from server", e.message);
+    }
   }
 }

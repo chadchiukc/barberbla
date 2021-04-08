@@ -9,10 +9,10 @@ class ServiceModel {
   ServiceModel({this.id, this.service, this.fee, this.imgUrl});
 
   ServiceModel.fromQueryDocumentnapshot(
-      QueryDocumentSnapshot documentSnapshot) {
-    id = documentSnapshot.id;
-    service = documentSnapshot.data()['service'];
-    imgUrl = documentSnapshot.data()['img_url'];
-    fee = documentSnapshot.data()['fee'];
+      QueryDocumentSnapshot queryDocumentSnapshot) {
+    id = queryDocumentSnapshot.id;
+    service = queryDocumentSnapshot.data()['service'];
+    imgUrl = queryDocumentSnapshot.data()['img'];
+    fee = queryDocumentSnapshot.data()['fee'];
   }
 }

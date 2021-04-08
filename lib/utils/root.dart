@@ -1,5 +1,5 @@
 import 'package:barberbla/controllers/auth_controller.dart';
-import 'package:barberbla/pages/dashboard_page.dart';
+import 'package:barberbla/pages/services_page.dart';
 import 'package:barberbla/pages/login.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
