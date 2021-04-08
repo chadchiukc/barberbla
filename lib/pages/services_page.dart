@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class DashboardPage extends StatelessWidget {
   // final AuthController _auth = Get.find<AuthController>();
-  // final AuthController _auth = Get.put(AuthController());
+  final AuthController _auth = Get.put(AuthController());
   final ServiceController _service = Get.put(ServiceController());
 
   @override
@@ -27,12 +27,17 @@ class DashboardPage extends StatelessWidget {
         child: SafeArea(
           child: Container(
             child: Center(
-              child: Obx(() => ListView.builder(
-                  itemCount: _service.servicesList.length,
-                  itemBuilder: (context, index) {
-                    // print(_service.servicesList[index].imgUrl);
-                    return Image.network(_service.servicesList[index].imgUrl);
-                  })),
+              child: ElevatedButton(
+                  onPressed: () {
+                    _auth.signout();
+                  },
+                  child: Text('logout')),
+              // child: Obx(() => ListView.builder(
+              //     itemCount: _service.servicesList.length,
+              //     itemBuilder: (context, index) {
+              //       // print(_service.servicesList[index].imgUrl);
+              //       return Image.network(_service.servicesList[index].imgName);
+              //     })),
             ),
           ),
         ),
