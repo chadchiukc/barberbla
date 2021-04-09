@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Barberbla',
       theme: ThemeData(
+        primaryColor: Colors.red,
         accentColor: Color.fromARGB(255, 77, 208, 225),
         inputDecorationTheme: ThemeData().inputDecorationTheme.copyWith(
               hintStyle: TextStyle(color: Colors.black.withOpacity(0.8)),
@@ -47,8 +48,8 @@ class MyApp extends StatelessWidget {
         )),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // home: Root(),
-      home: DashboardPage(),
+      home: Root(),
+      // home: DashboardPage(),
       getPages: routes(),
       builder: EasyLoading.init(),
     );

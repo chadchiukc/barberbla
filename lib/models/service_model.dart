@@ -1,19 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 class ServiceModel {
   String id;
   String service;
   int fee;
-  String imgUrl;
+  String imgName;
 
-  ServiceModel({this.id, this.service, this.fee, this.imgUrl});
+  ServiceModel({this.id, this.service, this.fee, this.imgName});
 
   ServiceModel.fromQueryDocumentnapshot(
       QueryDocumentSnapshot queryDocumentSnapshot) {
     id = queryDocumentSnapshot.id;
     service = queryDocumentSnapshot.data()['service'];
-    imgUrl = queryDocumentSnapshot.data()['img'];
+    imgName = queryDocumentSnapshot.data()['img'];
     fee = queryDocumentSnapshot.data()['fee'];
   }
 }

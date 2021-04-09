@@ -19,8 +19,6 @@ class ServiceController extends GetxController {
     try {
       _services = await Database().getServices();
       _services.docs.forEach((element) {
-        // var ref = FirebaseStorage.instance.ref().child(element.data().);
-        print(element.data());
         servicesList.add(ServiceModel.fromQueryDocumentnapshot(element));
       });
     } catch (e) {

@@ -12,6 +12,5 @@ class LocationController extends GetxController {
     Position position = await GPS().determinePosition();
     _position.value =
         LocationModel(lat: position.latitude, lng: position.longitude);
-    ;
   }
 }
