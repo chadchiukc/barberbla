@@ -19,7 +19,7 @@ class AuthController extends GetxController {
   }
 
   void signUp(String name, String email, String password) async {
-    EasyLoading.show(status: 'test.');
+    EasyLoading.show(status: 'Loading...');
     try {
       UserCredential _userCredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: password);
@@ -39,10 +39,10 @@ class AuthController extends GetxController {
   }
 
   void login(String email, String password) async {
-    EasyLoading.show(status: 'test.');
+    EasyLoading.show(status: 'Loading...');
     try {
       UserCredential _userCredential = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
+          email: email.trim(), password: password);
       _userController.user = await Database().getUser(_userCredential.user.uid);
       Get.offAndToNamed('/');
     } catch (e) {

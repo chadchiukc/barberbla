@@ -1,4 +1,5 @@
 import 'package:barberbla/models/user_model.dart';
+import 'package:barberbla/utils/database.dart';
 import 'package:get/get.dart';
 
 class UserController extends GetxController {
@@ -10,5 +11,13 @@ class UserController extends GetxController {
 
   void clear() {
     _userModel.value = UserModel();
+  }
+
+  void syncFirebase(String uid) async {
+    try {
+      _userModel.value = await Database().getUser(uid);
+    } catch (e) {
+      rethrow;
+    }
   }
 }

@@ -1,4 +1,3 @@
-import 'package:barberbla/pages/services_page.dart';
 import 'package:barberbla/utils/root.dart';
 import 'package:barberbla/utils/routes.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Barberbla',
       theme: ThemeData(
-        primaryColor: Colors.red,
+        primaryColor: Colors.red[400],
         accentColor: Color.fromARGB(255, 77, 208, 225),
         inputDecorationTheme: ThemeData().inputDecorationTheme.copyWith(
               hintStyle: TextStyle(color: Colors.black.withOpacity(0.8)),
@@ -34,11 +33,14 @@ class MyApp extends StatelessWidget {
             ),
             bodyText1: TextStyle(
               color: Colors.black.withOpacity(1),
+              fontSize: 18,
             ),
             bodyText2: TextStyle(
               color: Colors.black.withOpacity(1),
             ),
+            headline5: TextStyle(color: Colors.black.withOpacity(0.6)),
             headline6: TextStyle(color: Colors.white),
+            subtitle1: TextStyle(fontWeight: FontWeight.bold),
             subtitle2: TextStyle(decoration: TextDecoration.underline)),
         fontFamily: 'Raleway',
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -49,7 +51,6 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Root(),
-      // home: DashboardPage(),
       getPages: routes(),
       builder: EasyLoading.init(),
     );

@@ -6,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ServiceController extends GetxController {
   var servicesList = <ServiceModel>[].obs;
+  var selectedService = ServiceModel().obs;
   QuerySnapshot _services;
 
   @override
@@ -15,15 +16,21 @@ class ServiceController extends GetxController {
   }
 
   void addServices() async {
-    EasyLoading.show(status: 'test.');
+    EasyLoading.show(status: 'Loading...');
     try {
       _services = await Database().getServices();
       _services.docs.forEach((element) {
         servicesList.add(ServiceModel.fromQueryDocumentnapshot(element));
       });
     } catch (e) {
-      Get.snackbar("Error during fetching from server", e.message);
+      Get.snackbar(
+          "Error during fetching from server", 'Please try again later...');
     }
     EasyLoading.dismiss();
+  }
+
+  void selectService(int index) {
+    selectedService.value = ServiceModel(
+        fee: servicesList[index].fee, service: servicesList[index].service);
   }
 }
