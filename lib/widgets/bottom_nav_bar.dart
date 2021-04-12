@@ -9,7 +9,7 @@ class BottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() => BottomNavigationBar(
           unselectedItemColor: Colors.white,
-          selectedItemColor: Colors.amber,
+          selectedItemColor: Colors.amber[200],
           backgroundColor: Colors.red[400],
           onTap: (index) {
             if (_nav.selectedIndex != index) {

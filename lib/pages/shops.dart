@@ -27,6 +27,7 @@ class ShopPage extends StatelessWidget {
           () {
             return ListView.separated(
               separatorBuilder: (context, index) => Divider(
+                thickness: 1.5,
                 color: Colors.grey,
               ),
               itemCount: _shop.shopList.length,
@@ -36,8 +37,8 @@ class ShopPage extends StatelessWidget {
                   _time.updateTime(_shop.shopList[index].openHour);
                   _shop.selectShop(index);
                   Get.dialog(Dialog(
-                    insetPadding:
-                        EdgeInsets.symmetric(vertical: 200, horizontal: 0),
+                    insetPadding: EdgeInsets.symmetric(
+                        vertical: Get.height * 0.1, horizontal: 0),
                     child: TimeSlot(shop: _shop, time: _time, index: index),
                   ));
                 },
@@ -65,7 +66,7 @@ class ShopPage extends StatelessWidget {
                                 children: [
                                   Icon(Icons.location_on_outlined),
                                   Container(
-                                    width: 200,
+                                    width: Get.width * 0.5,
                                     child: Text(
                                       _shop.shopList[index].address,
                                       maxLines: 3,

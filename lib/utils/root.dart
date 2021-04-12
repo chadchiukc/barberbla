@@ -1,5 +1,4 @@
 import 'package:barberbla/controllers/auth_controller.dart';
-import 'package:barberbla/controllers/booking_controller.dart';
 import 'package:barberbla/controllers/nav_controller.dart';
 import 'package:barberbla/controllers/user_controller.dart';
 import 'package:barberbla/pages/services.dart';

@@ -5,6 +5,7 @@ import 'package:barberbla/widgets/background.dart';
 import 'package:barberbla/widgets/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class ServicePage extends StatelessWidget {
   final ServiceController _service = Get.put(ServiceController());
@@ -31,36 +32,43 @@ class ServicePage extends StatelessWidget {
                         _service.selectService(index);
                         Get.to(() => ShopPage());
                       },
-                      child: Card(
-                        margin: EdgeInsets.zero,
-                        elevation: 0,
-                        color: Colors.transparent,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(vertical: 30),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image(
-                                  height: 250,
-                                  width: Get.width,
-                                  fit: BoxFit.cover,
-                                  image: AssetImage(
-                                    'assets/images/$img.jpg',
-                                  )),
-                              Text(
-                                _service.servicesList[index].service,
-                                style: Theme.of(context).textTheme.headline5,
-                              ),
-                              Text(
-                                'HK\$ $fee',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline6
-                                    .copyWith(
-                                      color: Colors.grey[600],
-                                    ),
-                              )
-                            ],
+                      child: Container(
+                        width: getValueForScreenType(
+                            context: context,
+                            mobile: Get.width,
+                            tablet: Get.width * 0.6,
+                            desktop: Get.width * 0.3),
+                        child: Card(
+                          margin: EdgeInsets.zero,
+                          elevation: 0,
+                          color: Colors.transparent,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(vertical: 30),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image(
+                                    height: 250,
+                                    width: Get.width,
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(
+                                      'assets/images/$img.jpg',
+                                    )),
+                                Text(
+                                  _service.servicesList[index].service,
+                                  style: Theme.of(context).textTheme.headline5,
+                                ),
+                                Text(
+                                  'HK\$ $fee',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline6
+                                      .copyWith(
+                                        color: Colors.grey[600],
+                                      ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),

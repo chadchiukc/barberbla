@@ -2,7 +2,6 @@ import 'package:barberbla/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:ntp/ntp.dart';
-import 'package:get/get.dart';
 
 class Database {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

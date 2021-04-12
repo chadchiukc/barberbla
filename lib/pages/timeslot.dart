@@ -86,37 +86,44 @@ class TimeSlot extends StatelessWidget {
           Divider(
             color: Colors.black,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: ElevatedButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      child: Text('Cancel')),
+          Container(
+            width: getValueForScreenType(
+                context: context,
+                mobile: Get.width * 0.6,
+                tablet: Get.width * 0.4,
+                desktop: Get.width * 0.3),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        child: Text('Cancel')),
+                  ),
                 ),
-              ),
-              Obx(() {
-                if (_time.timeslot.length > 0) {
-                  return Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: ElevatedButton(
-                          onPressed: () {
-                            Get.off(() => ConfirmPage(),
-                                arguments:
-                                    _time.timeslot[_time.selectedIndex.value]);
-                          },
-                          child: Text('Confirm')),
-                    ),
-                  );
-                }
-                return SizedBox.shrink();
-              }),
-            ],
+                Obx(() {
+                  if (_time.timeslot.length > 0) {
+                    return Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              Get.off(() => ConfirmPage(),
+                                  arguments: _time
+                                      .timeslot[_time.selectedIndex.value]);
+                            },
+                            child: Text('Confirm')),
+                      ),
+                    );
+                  }
+                  return SizedBox.shrink();
+                }),
+              ],
+            ),
           )
         ],
       ),
