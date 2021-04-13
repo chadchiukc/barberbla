@@ -24,6 +24,7 @@ class TimeSlot extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red[400],
         centerTitle: true,
         title: Column(
           children: [
@@ -99,6 +100,11 @@ class TimeSlot extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)),
+                          primary: Color.fromARGB(255, 77, 208, 225),
+                        ),
                         onPressed: () {
                           Get.back();
                         },
@@ -111,6 +117,11 @@ class TimeSlot extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5)),
+                              primary: Color.fromARGB(255, 77, 208, 225),
+                            ),
                             onPressed: () {
                               Get.off(() => ConfirmPage(),
                                   arguments: _time

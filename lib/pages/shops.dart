@@ -18,6 +18,7 @@ class ShopPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red[400],
         centerTitle: true,
         title: Text('Step 2: Select the shop'),
       ),

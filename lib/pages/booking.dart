@@ -1,5 +1,6 @@
 import 'package:barberbla/controllers/auth_controller.dart';
 import 'package:barberbla/controllers/booking_controller.dart';
+import 'package:barberbla/controllers/nav_controller.dart';
 import 'package:barberbla/controllers/user_controller.dart';
 import 'package:barberbla/widgets/background.dart';
 import 'package:barberbla/widgets/bottom_nav_bar.dart';
@@ -10,16 +11,19 @@ class BookingPage extends StatelessWidget {
   final UserController _user = Get.find<UserController>();
   final BookingController _booking = Get.find<BookingController>();
   final AuthController _auth = Get.find<AuthController>();
+  final NavController _nav = Get.find<NavController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red[400],
         centerTitle: true,
         title: Text('${_user.user.name.capitalizeFirst}\'s Booking'),
         actions: [
           TextButton(
               onPressed: () {
+                _nav.selectedIndex = 0;
                 _auth.signout();
               },
               child: Text(

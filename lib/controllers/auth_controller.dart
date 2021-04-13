@@ -27,6 +27,7 @@ class AuthController extends GetxController {
         id: _userCredential.user.uid,
         name: name,
         email: _userCredential.user.email,
+        privilege: 'customer',
       );
       if (await Database().createNewUser(_user)) {
         _userController.user = _user;

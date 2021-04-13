@@ -1,3 +1,4 @@
+import 'package:barberbla/models/booking_model.dart';
 import 'package:barberbla/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ class Database {
       await _firestore.collection("users").doc(user.id).set({
         "name": user.name,
         "email": user.email,
+        "privilege": 'customer',
       });
       return true;
     } catch (e) {
@@ -52,6 +54,15 @@ class Database {
     }
   }
 
+  Future<List> adminGetShops() async {
+    try {
+      QuerySnapshot querySnapshot = await _firestore.collection('shops').get();
+      return querySnapshot.docs.map((e) => e.data()['name']).toList();
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   Future<QuerySnapshot> getBooking(String uid) async {
     try {
       QuerySnapshot querySnapshot = await _firestore
@@ -64,6 +75,20 @@ class Database {
     } catch (e) {
       rethrow;
     }
+  }
+
+  Stream<List<BookingModel>> bookingStream() {
+    return _firestore
+        .collection('booking')
+        .orderBy('timestamp', descending: false)
+        .snapshots()
+        .map((event) {
+      List<BookingModel> _bookingList = [];
+      event.docs.forEach((element) {
+        _bookingList.add(BookingModel.fromQueryDocumentnapshot(element));
+      });
+      return _bookingList;
+    });
   }
 
   Future<bool> addBooking(String service, String shopId, TimeOfDay timeOfDay,

@@ -101,6 +101,11 @@ class Signup extends StatelessWidget {
                                 height: 50,
                                 width: double.infinity,
                                 child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(5)),
+                                    primary: Color.fromARGB(255, 77, 208, 225),
+                                  ),
                                   onPressed: () {
                                     if (_formKey.currentState.validate()) {
                                       _authController.signUp(
@@ -109,8 +114,10 @@ class Signup extends StatelessWidget {
                                   },
                                   child: Text(
                                     'Sign Up',
-                                    style:
-                                        Theme.of(context).textTheme.headline6,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .copyWith(color: Colors.white),
                                   ),
                                 ),
                               ),
@@ -128,8 +135,12 @@ class Signup extends StatelessWidget {
                                     },
                                     child: Text(
                                       'Log in',
-                                      style:
-                                          Theme.of(context).textTheme.subtitle2,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .subtitle2
+                                          .copyWith(
+                                              decoration:
+                                                  TextDecoration.underline),
                                     ),
                                   ),
                                 ],

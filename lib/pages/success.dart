@@ -10,6 +10,7 @@ class SuccessPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red[400],
         centerTitle: true,
         title: Text('Reserved Successfully'),
       ),
