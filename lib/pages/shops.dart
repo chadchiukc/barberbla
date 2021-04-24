@@ -93,7 +93,8 @@ class ShopPage extends StatelessWidget {
                           height: 150,
                           width: 150,
                           fit: BoxFit.contain,
-                          image: AssetImage('assets/images/barberbla.png'),
+                          image: AssetImage(
+                              'assets/images/${_shop.shopList[index].img}.png'),
                         ),
                       ],
                     ),

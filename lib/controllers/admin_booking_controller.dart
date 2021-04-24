@@ -38,8 +38,9 @@ class AdminBookingController extends GetxController {
         booking.timestamp.toDate().day == currentDate.day);
     if (shopName != 'All') {
       todayBooking =
-          bookingList.where((booking) => booking.shopName == shopName);
+          todayBooking.where((booking) => booking.shopName == shopName);
     }
+    print('todayBook');
     return todayBooking.toList();
   }
 
@@ -51,20 +52,20 @@ class AdminBookingController extends GetxController {
         booking.timestamp.toDate().day == currentDate.day);
     if (shopName != 'All') {
       todayBooking =
-          bookingList.where((booking) => booking.shopName == shopName);
+          todayBooking.where((booking) => booking.shopName == shopName);
     }
     return todayBooking.toList().length;
   }
 
   int monthCount(String shopName, RxList<BookingModel> bookingList) {
     var currentDate = DateTime.now();
-    var todayBooking = bookingList.where((booking) =>
+    var monthBooking = bookingList.where((booking) =>
         booking.timestamp.toDate().year == currentDate.year &&
         booking.timestamp.toDate().month == currentDate.month);
     if (shopName != 'All') {
-      todayBooking =
-          bookingList.where((booking) => booking.shopName == shopName);
+      monthBooking =
+          monthBooking.where((booking) => booking.shopName == shopName);
     }
-    return todayBooking.toList().length;
+    return monthBooking.toList().length;
   }
 }
