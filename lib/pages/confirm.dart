@@ -1,5 +1,5 @@
 import 'package:barberbla/controllers/auth_controller.dart';
-import 'package:barberbla/controllers/booking_controller.dart';
+// import 'package:barberbla/controllers/booking_controller.dart';
 import 'package:barberbla/controllers/service_controll.dart';
 import 'package:barberbla/controllers/shops_controller.dart';
 import 'package:barberbla/pages/success.dart';
@@ -13,7 +13,7 @@ class ConfirmPage extends StatelessWidget {
   final ShopController _shop = Get.find<ShopController>();
   final ServiceController _service = Get.find<ServiceController>();
   final AuthController _user = Get.find<AuthController>();
-  final BookingController _booking = Get.find<BookingController>();
+  // final BookingController _booking = Get.find<BookingController>();
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +106,7 @@ class ConfirmPage extends StatelessWidget {
                               _args,
                               _user.user,
                               _shop.selectedShop.value.name)) {
-                            _booking.fetchBooking();
+                            // _booking.fetchBooking();
                             Get.offAll(() => SuccessPage(), arguments: [
                               _args,
                               _shop.selectedShop.value.name
