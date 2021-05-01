@@ -14,7 +14,7 @@ class Root extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      if (_authController.user != null && _userController.user == null) {
+      if (_authController.user != null) {
         _userController.syncFirebase(_authController.user);
       }
       return _authController.user == null

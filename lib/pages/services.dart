@@ -1,4 +1,4 @@
-import 'package:barberbla/controllers/booking_controller.dart';
+// import 'package:barberbla/controllers/booking_controller.dart';
 import 'package:barberbla/controllers/nav_controller.dart';
 import 'package:barberbla/controllers/service_controll.dart';
 import 'package:barberbla/pages/shops.dart';
@@ -10,7 +10,7 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 class ServicePage extends StatelessWidget {
   final ServiceController _service = Get.put(ServiceController());
-  final BookingController _booking = Get.put(BookingController());
+  // final BookingController _booking = Get.put(BookingController());
   final NavController _nav = Get.put(NavController());
 
   @override

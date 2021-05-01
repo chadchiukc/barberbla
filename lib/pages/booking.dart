@@ -9,7 +9,8 @@ import 'package:get/get.dart';
 
 class BookingPage extends StatelessWidget {
   final UserController _user = Get.find<UserController>();
-  final BookingController _booking = Get.find<BookingController>();
+  // final BookingController _booking = Get.find<BookingController>();
+  final BookingController _booking = Get.put(BookingController());
   final AuthController _auth = Get.find<AuthController>();
   final NavController _nav = Get.find<NavController>();
 

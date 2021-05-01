@@ -1,4 +1,5 @@
 import 'package:barberbla/controllers/auth_controller.dart';
+import 'package:barberbla/widgets/background.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -13,15 +14,7 @@ class Signup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            colorFilter: ColorFilter.mode(
-              Colors.black.withOpacity(0.3),
-              BlendMode.dstATop,
-            ),
-            image: AssetImage('assets/images/login_background.jpeg'),
-            fit: BoxFit.cover),
-      ),
+      decoration: background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: GestureDetector(

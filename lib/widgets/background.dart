@@ -6,6 +6,6 @@ final background = BoxDecoration(
       // Colors.black.withOpacity(0.3),
       // BlendMode.dstATop,
       // ),
-      image: AssetImage('assets/images/background.png'),
+      image: AssetImage('assets/images/login_background.png'),
       fit: BoxFit.cover),
 );

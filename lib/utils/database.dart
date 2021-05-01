@@ -71,6 +71,7 @@ class Database {
           .where('userId', isEqualTo: uid)
           .limit(15)
           .get();
+      print(uid);
       return querySnapshot;
     } catch (e) {
       rethrow;
